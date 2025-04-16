@@ -1,19 +1,24 @@
-variable "region" {
-  default = "us-east-1"
-}
-
-variable "key_name" {
-  description = "openproject-key.pem"
-}
-
-variable "instance_type" {
-  default = "t2.medium"
-}
-
 variable "ami_id" {
-  description = "ami-00a929b66ed6e0de6"
+  type        = string
+  description = "The AMI ID to use for the instance"
 }
-
-variable "vpc_cidr" {
-  default = "10.0.0.0/16"
+ 
+variable "instance_type" {
+  type        = string
+  description = "The instance type to use"
+}
+ 
+variable "key_name" {
+  type        = string
+  description = "The SSH key name to use"
+}
+ 
+variable "vpc_id" {
+  type        = string
+  description = "The VPC ID"
+}
+ 
+variable "subnet_ids" {
+  type        = list(string)
+  description = "A list of subnet IDs"
 }
