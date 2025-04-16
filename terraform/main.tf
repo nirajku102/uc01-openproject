@@ -9,7 +9,7 @@ resource "aws_instance" "openproject_instance" {
     sudo apt update -y
     curl -fsSL https://get.docker.com -o install-docker.sh
     sudo sh install-docker.sh
-    sudo usermod -aG docker ubuntu
+    sudo usermod -aG docker ec2-user
     docker run -d -p 80:80 \
      -e OPENPROJECT_SECRET_KEY_BASE=secret \
      -e OPENPROJECT_HTTPS=false \
